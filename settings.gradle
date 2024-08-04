@@ -1,0 +1,170 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://maven.minecraftforge.net/" }
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+    versionCatalogs {
+        // Minecraft Version
+        def minecraftVersion = "${minecraft_version}"
+
+        // Mod Dependencies Versions
+        // Libs
+        def quiltMappingsVersion = "${quilt_mappings_version}"  // https://lambdaurora.dev/tools/import_quilt.html
+        def parchmentVersion = "${parchment_version}" // https://parchmentmc.org/docs/getting-started
+        def shadowVersion = "${shadow_version}"
+        def architecturyPluginVersion = "${architectury_plugin_version}"
+        def architecturyLoomVersion = "${architectury_loom_version}"
+        def mixinextrasVersion = "${mixinextras_version}"
+        def clothConfigVersion = "${cloth_config_version}"
+
+        // Common
+        def jeiVersion = "${jei_version}"
+        def reiVersion = "${rei_version}"
+        def emiVersion = "${emi_version}"
+        def kjsVersion = "${kjs_version}"
+        def anvilLibVersion = "${anvil_lib_version}"
+        def anvilcraftVersion = "${anvilcraft_version}"
+
+        // Fabric
+        def fabricLoaderVersion = "${fabric_loader_version}" // https://fabricmc.net/develop/
+        def fabricApiVersion = "${fabric_api_version}" // https://fabricmc.net/develop/
+        def lazyDfuVersion = "${lazy_dfu_fabric_version}"
+        def modMenuVersion = "${mod_menu_fabric_version}"
+        def jadeFabricVersion = "${jade_fabric_version}"
+        def registrateFabricVersion = "${registrate_fabric_version}"
+        def reachEntityAttributesVersion = "${reach_entity_attributes_version}"
+
+        // Forge
+        def forgeVersion = "${forge_version}"
+        def registrateForgeVersion = "${registrate_forge_version}"
+        def jadeForgeVersion = "${jade_forge_version}"
+
+        fabric {
+            def fabricLoader = version("fabricLoader", fabricLoaderVersion)
+            library("fabricLoader", "net.fabricmc", "fabric-loader").versionRef(fabricLoader)
+
+            def fabricApi = version("fabricApi", "${fabricApiVersion}+${minecraftVersion}")
+            library("fabricApi", "net.fabricmc.fabric-api", "fabric-api").versionRef(fabricApi)
+
+            def registrate = version("registrate", registrateFabricVersion)
+            library("registrate", "com.tterrag.registrate_fabric", "Registrate").versionRef(registrate)
+
+            def lazyDfu = version("lazydfu", lazyDfuVersion)
+            library("lazydfu", "maven.modrinth", "lazydfu").versionRef(lazyDfu)
+
+            def modMenu = version("modmenu", modMenuVersion)
+            library("modmenu", "com.terraformersmc", "modmenu").versionRef(modMenu)
+
+            def jei = version("jei", jeiVersion)
+            library("jei-common-api", "mezz.jei", "jei-${minecraftVersion}-common-api").versionRef(jei)
+            library("jei-fabric-api", "mezz.jei", "jei-${minecraftVersion}-fabric-api").versionRef(jei)
+            library("jei-fabric-impl", "mezz.jei", "jei-${minecraftVersion}-fabric").versionRef(jei)
+            bundle("jei", ["jei-common-api", "jei-fabric-api"])
+
+            def rei = version("rei", reiVersion)
+            library("rei-plugin", "me.shedaniel", "RoughlyEnoughItems-default-plugin-fabric").versionRef(rei)
+            library("rei-api", "me.shedaniel", "RoughlyEnoughItems-api-fabric").versionRef(rei)
+            library("rei-fabric", "me.shedaniel", "RoughlyEnoughItems-fabric").versionRef(rei)
+
+            def emi = version("emi", emiVersion)
+            library("emi", "dev.emi", "emi-fabric").versionRef(emi)
+
+            def jade = version("jade", jadeFabricVersion)
+            library("jade", "maven.modrinth", "jade").versionRef(jade)
+
+            def kubejs = version("kubejs", kjsVersion)
+            library("kubejs", "dev.latvian.mods", "kubejs-fabric").versionRef(kubejs)
+
+            def mixinextras = version("mixinextras", mixinextrasVersion)
+            library("mixinextras", "io.github.llamalad7", "mixinextras-fabric").versionRef(mixinextras)
+            library("mixinextras-common", "io.github.llamalad7", "mixinextras-common").versionRef(mixinextras)
+
+            def clothConfig = version("clothConfig", clothConfigVersion)
+            library("clothConfig", "me.shedaniel.cloth", "cloth-config-fabric").versionRef(clothConfig)
+
+            def reachEntityAttributes = version("reach-entity-attributes", reachEntityAttributesVersion)
+            library("reachEntityAttributes", "com.jamieswhiteshirt", "reach-entity-attributes").versionRef(reachEntityAttributes)
+
+            def anvilLib = version("anvilLib", anvilLibVersion)
+            library("anvilLib", "dev.anvilcraft.lib", "anvillib-fabric-${minecraftVersion}").versionRef(anvilLib)
+
+            def anvilcraft = version("anvilcraft", anvilcraftVersion)
+            library("anvilcraft", "dev.dubhe", "anvilcraft-fabric-1.20.1").versionRef(anvilcraft)
+        }
+
+        forge {
+            version("forgeShortVersion", forgeVersion)
+            def minecraftForge = version("minecratfForge", "${minecraftVersion}-${forgeVersion}")
+            library("minecraftForge", "net.minecraftforge", "forge").versionRef(minecraftForge)
+
+            def registrate = version("registrate", registrateForgeVersion)
+            library("registrate", "com.tterrag.registrate", "Registrate").versionRef(registrate)
+
+            def jei = version("jei", jeiVersion)
+            library("jei-common-api", "mezz.jei", "jei-${minecraftVersion}-common-api").versionRef(jei)
+            library("jei-forge-api", "mezz.jei", "jei-${minecraftVersion}-forge-api").versionRef(jei)
+            library("jei-forge-impl", "mezz.jei", "jei-${minecraftVersion}-forge").versionRef(jei)
+
+            def rei = version("rei", reiVersion)
+            library("rei-plugin", "me.shedaniel", "RoughlyEnoughItems-default-plugin-forge").versionRef(rei)
+            library("rei-api", "me.shedaniel", "RoughlyEnoughItems-api-forge").versionRef(rei)
+            library("rei-forge", "me.shedaniel", "RoughlyEnoughItems-forge").versionRef(rei)
+
+            def emi = version("emi", emiVersion)
+            library("emi", "dev.emi", "emi-forge").versionRef(emi)
+
+            def jade = version("jade", jadeForgeVersion)
+            library("jade", "maven.modrinth", "jade").versionRef(jade)
+
+            def kubejs = version("kubejs", kjsVersion)
+            library("kubejs", "dev.latvian.mods", "kubejs-forge").versionRef(kubejs)
+
+            def mixinextras = version("mixinextras", mixinextrasVersion)
+            library("mixinextras-forge", "io.github.llamalad7", "mixinextras-forge").versionRef(mixinextras)
+
+            def clothConfig = version("clothConfig", clothConfigVersion)
+            library("clothConfig", "me.shedaniel.cloth", "cloth-config-forge").versionRef(clothConfig)
+
+            def anvilLib = version("anvilLib", anvilLibVersion)
+            library("anvilLib", "dev.anvilcraft.lib", "anvillib-forge-${minecraftVersion}").versionRef(anvilLib)
+
+            def anvilcraft = version("anvilcraft", anvilcraftVersion)
+            library("anvilcraft", "dev.dubhe", "anvilcraft-forge-1.20.1").versionRef(anvilcraft)
+        }
+
+        libs {
+            version("quiltMappings", quiltMappingsVersion)
+            version("parchment", parchmentVersion)
+
+            def minecraft = version("minecraft", minecraftVersion)
+            library("minecraft", "com.mojang", "minecraft").versionRef(minecraft)
+
+            def shadow = version("shadow", shadowVersion)
+            plugin("shadow", "com.github.johnrengelman.shadow").versionRef(shadow)
+
+            def architecturyPlugin = version("architectury", architecturyPluginVersion)
+            plugin("architectury", "architectury-plugin").versionRef(architecturyPlugin)
+
+            def architecturyLoom = version("architectury-loom", architecturyLoomVersion)
+            plugin("architectury-loom", "dev.architectury.loom").versionRef(architecturyLoom)
+        }
+    }
+}
+
+include("${mod_id}-common")
+include("${mod_id}-fabric")
+include("${mod_id}-forge")
+
+project(":${mod_id}-common").setProjectDir(new File("common"))
+project(":${mod_id}-forge").setProjectDir(new File("forge"))
+project(":${mod_id}-fabric").setProjectDir(new File("fabric"))
+
+rootProject.name = "${mod_name}"
