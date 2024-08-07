@@ -1,0 +1,66 @@
+{
+  "icon":{
+    "item": "anvilcraft_fooding:rice_with_chili"
+  },
+  "type": "anvilcraft:anvil_processing",
+  "anvil_recipe_type": "generic",
+  "predicates":[
+    {
+      "type": "has_block",
+      "match_block": {
+        "blocks": [
+          "minecraft:cauldron"
+        ]
+      },
+      "offset": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    },{
+      "type": "foodcraft_has_item",
+      "match_item": {
+        "count": {
+          "min": 1
+        },
+        "items": [
+          "anvilcraft_fooding:chili"
+        ]
+      },
+      "offset": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    },{
+      "type": "foodcraft_has_item",
+      "match_item": {
+        "count": {
+          "min": 1
+        },
+        "items": [
+          "anvilcraft_fooding:rice"
+        ]
+      },
+      "offset": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "type": "foodcraft_spawn_item",
+      "chance": 1.0,
+      "offset": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "result": {
+        "item": "anvilcraft_fooding:rice_with_chili"
+      }
+    }
+  ]
+}

@@ -14,15 +14,15 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.anvilcraft.addon.fabric.ExampleModFabric"
+      "dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric"
     ],
     "fabric-datagen": [
-      "dev.anvilcraft.addon.data.fabric.ExampleModDatagen"
+      "dev.anvilcraft.fooding.data.fabric.AnvilCraftFoodingDatagen"
     ]
   },
   "mixins": [
-    "anvilcraft_addon_example.mixins.json",
-    "anvilcraft_addon_example-common.mixins.json"
+    "anvilcraft_fooding.mixins.json",
+    "anvilcraft_fooding-common.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.7",

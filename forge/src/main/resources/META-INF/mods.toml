@@ -9,7 +9,7 @@ displayName="${mod_name}"
 displayURL="${mod_url}"
 authors=""
 description="${mod_description}"
-logoFile="assets/anvilcraft_addon_example/textures/icon.png" #optional
+logoFile= "../../../generated/resources/assets/anvilcraft_fooding/textures/icon.png" #optional
 #credits="Thanks for this example mod goes to Java"
 
 [[dependencies.${mod_id}]]
