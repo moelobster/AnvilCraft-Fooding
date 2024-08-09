@@ -1,5 +1,7 @@
 {
-  "block.anvilcraft_fooding.example_block": "ʞɔoןᗺ ǝןdɯɐxƎ",
-  "item.anvilcraft_fooding.example_item": "ɯǝʇI ǝןdɯɐxƎ",
-  "itemGroup.anvilcraft_fooding.example_tab": "qɐ⟘ ǝןdɯɐxƎ"
+  "item.anvilcraft_fooding.chili": "ıןıɥƆ",
+  "item.anvilcraft_fooding.rice": "ǝɔıᴚ",
+  "item.anvilcraft_fooding.rice_with_chili": "ıןıɥƆ ɥʇıM ǝɔıᴚ",
+  "itemGroup.anvilcraft_fooding.fooding": "buıpooℲ",
+  "itemGroup.anvilcraft_fooding.tools": "pooɟ:buıpooℲ‾ʇɟɐɹƆןıʌuⱯ"
 }

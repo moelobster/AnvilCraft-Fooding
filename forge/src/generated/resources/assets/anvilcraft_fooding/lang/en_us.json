@@ -1,5 +1,7 @@
 {
-  "block.anvilcraft_fooding.example_block": "Example Block",
-  "item.anvilcraft_fooding.example_item": "Example Item",
-  "itemGroup.anvilcraft_fooding.example_tab": "Example Tab"
+  "item.anvilcraft_fooding.chili": "Chili",
+  "item.anvilcraft_fooding.rice": "Rice",
+  "item.anvilcraft_fooding.rice_with_chili": "Rice With Chili",
+  "itemGroup.anvilcraft_fooding.fooding": "Fooding",
+  "itemGroup.anvilcraft_fooding.tools": "AnvilCraft_Fooding:food"
 }

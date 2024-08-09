@@ -1,9 +1,6 @@
 package dev.anvilcraft.fooding;
 
-import dev.anvilcraft.fooding.data.AnvilCraftFoodingDatagen;
-import dev.anvilcraft.fooding.init.ModBlocks;
-import dev.anvilcraft.fooding.init.ModCreativeModeTab;
-import dev.anvilcraft.fooding.init.ModItems;
+
 import dev.dubhe.anvilcraft.api.registry.AnvilCraftRegistrate;
 
 public class AnvilCraftFooding {

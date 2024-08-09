@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "anvilcraft_fooding:block/example_block"
-  }
-}
