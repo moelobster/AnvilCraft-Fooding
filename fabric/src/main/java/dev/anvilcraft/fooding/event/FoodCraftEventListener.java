@@ -66,29 +66,34 @@ public class FoodCraftEventListener {
             ItemEntity itemEntity2 = entities2.get(0);
             ItemStack itemStack1 = itemEntity1.getItem();
             ItemStack itemStack2 = itemEntity2.getItem();
-            CompoundTag compoundTag1 = itemStack1.getTagElement(MOD_ID);
-            CompoundTag compoundTag2 = itemStack2.getTagElement(MOD_ID);
-            if (compoundTag1 != null) {
-                Set<String> keys = compoundTag1.getAllKeys();
-                for(String key:keys){
-                    if(compoundTag2.contains(key)){
-                        int grade = compoundTag1.getInt(key)+compoundTag2.getInt(key);
-                        compoundTag2.remove(key);
-                        if(grade != 0){
-                            compoundTag2.putInt(key,grade);
-                        }
-                    }else{
-                        compoundTag2.putInt(key,compoundTag1.getInt(key));
+            CompoundTag Tag1 = itemStack1.getTagElement(MOD_ID);
+            CompoundTag Tag2 = itemStack2.getTagElement(MOD_ID);
+            if(Tag1 == null || Tag2 == null)   return;
+            CompoundTag compoundTag1 = Tag1.copy();
+            CompoundTag compoundTag2 = Tag2.copy();
+            Set<String> keys = compoundTag1.getAllKeys();
+            for(String key:keys){
+                if(compoundTag2.contains(key)){
+                    int grade = compoundTag1.getInt(key)+compoundTag2.getInt(key);
+                    compoundTag2.remove(key);
+                    if(grade != 0){
+                        compoundTag2.putInt(key,grade);
                     }
+                }else{
+                    compoundTag2.putInt(key,compoundTag1.getInt(key));
                 }
             }
             itemStack1.setCount(itemStack1.getCount()-1);
             itemEntity1.setItem(itemStack1);
             CompoundTag oucomeTag = new CompoundTag();
-            if (compoundTag2 != null) {
-                oucomeTag.put(MOD_ID,compoundTag2);
-            }
-            itemStack2.setTag(oucomeTag);
+            oucomeTag.put(MOD_ID,compoundTag2);
+            ItemStack itemStack3 = itemStack2.copy();
+            itemStack3.setTag(oucomeTag);
+            itemStack3.setCount(1);
+            itemStack2.setCount(itemStack2.getCount()-1);
+            itemEntity2.setItem(itemStack2);
+            ItemEntity itemEntity3 = new ItemEntity(level,pos.getX(),pos.getY()-2, pos.getZ(),itemStack3);
+            level.addFreshEntity(itemEntity3);
         }
     }
 }
