@@ -1,7 +1,6 @@
 package dev.anvilcraft.fooding.foodsystem.like;
 
 import dev.dubhe.anvilcraft.init.ModItems;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;

@@ -1,6 +1,5 @@
 package dev.anvilcraft.fooding.foodsystem.like;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 
 public interface LikeType {

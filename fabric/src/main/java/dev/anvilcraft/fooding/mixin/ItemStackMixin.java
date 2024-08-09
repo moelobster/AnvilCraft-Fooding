@@ -2,9 +2,7 @@ package dev.anvilcraft.fooding.mixin;
 
 import dev.anvilcraft.fooding.item.minecraft.FoodFix;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

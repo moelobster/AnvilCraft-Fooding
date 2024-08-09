@@ -2,7 +2,6 @@ package dev.anvilcraft.fooding.fabric;
 
 import dev.anvilcraft.fooding.event.FoodCraftEventListener;
 import dev.anvilcraft.fooding.foodsystem.FoodEfeects;
-import dev.anvilcraft.fooding.foodsystem.like.Like1;
 import dev.anvilcraft.fooding.init.ModFoods;
 import dev.anvilcraft.fooding.init.ModItemGroups;
 import dev.anvilcraft.fooding.data.recipe.FoodCraftRecipe;
