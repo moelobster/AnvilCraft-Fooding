@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -92,7 +93,8 @@ public class FoodCraftEventListener {
             itemStack3.setCount(1);
             itemStack2.setCount(itemStack2.getCount()-1);
             itemEntity2.setItem(itemStack2);
-            ItemEntity itemEntity3 = new ItemEntity(level,pos.getX(),pos.getY()-2, pos.getZ(),itemStack3);
+            ItemEntity itemEntity3 = new ItemEntity(level,pos.getX()+0.5,pos.getY()-1.5, pos.getZ()+0.5,itemStack3);
+            itemEntity3.setDeltaMovement(0,0,0);
             level.addFreshEntity(itemEntity3);
         }
     }

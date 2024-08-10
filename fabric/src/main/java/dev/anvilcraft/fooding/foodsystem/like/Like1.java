@@ -45,7 +45,7 @@ public class Like1 implements LikeType{
         l = l - 1;
         for(Item item:oreList){
             double chance = Math.random();
-            if(chance <= (l/(l+19.0))){
+            if(chance <= (l/(l+39.0))){
                 ItemStack itemStack = new ItemStack(item);
                 itemStack.setCount(new Random().nextInt((int) Math.floor(Math.sqrt(grade)))+1);
                 ItemEntity itemEntity = new ItemEntity(player.level(), player.xOld, player.yOld, player.zOld, itemStack);
