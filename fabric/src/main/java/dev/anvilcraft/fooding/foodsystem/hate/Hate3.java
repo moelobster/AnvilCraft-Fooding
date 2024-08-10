@@ -1,4 +1,4 @@
-package dev.anvilcraft.fooding.foodsystem.haste;
+package dev.anvilcraft.fooding.foodsystem.hate;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,7 +18,7 @@ public class Hate3 implements HateType {
             l = l + 1;
         }
         l = l - 1;
-        Level level = player.kjs$getLevel();
+        Level level = player.level();
         if(Math.random() < (l/(l+29.0))){
             if (!level.isClientSide) {
                 Vec3 playerPos = player.position();

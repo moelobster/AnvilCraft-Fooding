@@ -1,6 +1,6 @@
 package dev.anvilcraft.fooding.foodsystem;
 
-import dev.anvilcraft.fooding.foodsystem.haste.*;
+import dev.anvilcraft.fooding.foodsystem.hate.*;
 import dev.anvilcraft.fooding.foodsystem.like.*;
 import dev.anvilcraft.fooding.foodsystem.normal.*;
 import net.minecraft.nbt.CompoundTag;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static dev.anvilcraft.fooding.foodsystem.haste.Hate.*;
+import static dev.anvilcraft.fooding.foodsystem.hate.Hate.*;
 import static dev.anvilcraft.fooding.foodsystem.like.Like.*;
 import static dev.anvilcraft.fooding.foodsystem.taste.Tastes.*;
 

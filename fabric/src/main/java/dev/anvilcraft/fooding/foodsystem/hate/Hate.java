@@ -1,4 +1,4 @@
-package dev.anvilcraft.fooding.foodsystem.haste;
+package dev.anvilcraft.fooding.foodsystem.hate;
 
 import java.util.Random;
 

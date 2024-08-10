@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 import java.util.Set;
 
 import static dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric.MOD_ID;
-import static dev.anvilcraft.fooding.foodsystem.haste.Hate.HATE1;
+import static dev.anvilcraft.fooding.foodsystem.hate.Hate.HATE1;
 import static dev.anvilcraft.fooding.foodsystem.like.Like.*;
 import static dev.anvilcraft.fooding.foodsystem.FoodEfeects.*;
 

@@ -1,4 +1,4 @@
-package dev.anvilcraft.fooding.foodsystem.haste;
+package dev.anvilcraft.fooding.foodsystem.hate;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -15,7 +15,7 @@ public class Hate4 implements HateType {
         int i = 0;
         for(EquipmentSlot equipmentSlot: EquipmentSlot.values()){
             if(equipmentSlot.getType() == EquipmentSlot.Type.ARMOR){
-                ItemStack itemStack = player.kjs$getEquipment(equipmentSlot);
+                ItemStack itemStack = player.getItemBySlot(equipmentSlot);
                 if(!itemStack.isEmpty()){
                     i = i + 1;
                     int newDamage = Math.max(0,itemStack.getDamageValue()-5*l);

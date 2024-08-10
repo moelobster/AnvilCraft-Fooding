@@ -15,7 +15,7 @@ public class Like4 implements LikeType{
         int i = 0;
         for(EquipmentSlot equipmentSlot: EquipmentSlot.values()){
             if(equipmentSlot.getType() == EquipmentSlot.Type.ARMOR){
-                ItemStack itemStack = player.kjs$getEquipment(equipmentSlot);
+                ItemStack itemStack = player.getItemBySlot(equipmentSlot);
                 if(!itemStack.isEmpty()){
                     i = i + 1;
                     int newDamage = Math.min(5*l,itemStack.getMaxDamage()-itemStack.getDamageValue());
