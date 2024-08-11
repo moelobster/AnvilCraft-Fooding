@@ -3,10 +3,10 @@ package dev.anvilcraft.fooding.foodsystem.hate;
 import java.util.Random;
 
 public enum Hate {
-    HATE1("haste1"),
-    HATE2("haste2"),
-    HATE3("haste3"),
-    HATE4("haste4")
+    HATE1("hate1"),
+    HATE2("hate2"),
+    HATE3("hate3"),
+    HATE4("hate4")
     ;
     private final String haste;
 

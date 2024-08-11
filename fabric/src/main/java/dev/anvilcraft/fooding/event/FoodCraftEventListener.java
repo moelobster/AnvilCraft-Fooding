@@ -2,6 +2,8 @@ package dev.anvilcraft.fooding.event;
 
 import com.google.common.base.Predicates;
 import dev.anvilcraft.fooding.foodsystem.FoodsData;
+import dev.anvilcraft.fooding.foodsystem.hate.Hate;
+import dev.anvilcraft.fooding.foodsystem.like.Like;
 import dev.anvilcraft.lib.event.SubscribeEvent;
 import dev.dubhe.anvilcraft.api.event.entity.AnvilFallOnLandEvent;
 import dev.dubhe.anvilcraft.api.event.entity.AnvilHurtEntityEvent;
@@ -18,11 +20,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric.MOD_ID;
 
@@ -33,8 +33,39 @@ public class FoodCraftEventListener {
         if(!(hurtedEntity instanceof ServerPlayer player))  return;
         if (!(hurtedEntity.level() instanceof ServerLevel serverLevel)) return;
         if(player.isAlive())   return;
-        CompoundTag playerTag = ((FoodsData)player).getFoodsData();
-        CompoundTag compoundTag = new CompoundTag();
+        CompoundTag compoundTag = ((FoodsData)player).getFoodsData();
+        CompoundTag playerTag = compoundTag.getCompound(MOD_ID);
+        List<String> hateList = new ArrayList<>();
+        List<String> likeList = new ArrayList<>();
+        Set<String> tasteList = playerTag.getAllKeys();
+        for( String taste : tasteList ){
+            CompoundTag attitude = playerTag.getCompound(taste);
+            for(Hate hate : Hate.values()){
+                if(attitude.contains(hate.get())){
+                    hateList.add(taste);
+                    break;
+                }
+            }
+            for (Like like : Like.values()){
+                if(attitude.contains(like.get())){
+                    likeList.add(taste);
+                    break;
+                }
+            }
+        }
+        if(!hateList.isEmpty()){
+            Random random = new Random();
+            int tmp = random.nextInt(hateList.size());
+            playerTag.remove(hateList.get(tmp));
+        }
+        if(!likeList.isEmpty()){
+            Random random = new Random();
+            int tmp = random.nextInt(likeList.size());
+            playerTag.remove(likeList.get(tmp));
+        }
+        CompoundTag outcome = new CompoundTag();
+        outcome.put(MOD_ID,playerTag);
+        ((FoodsData) player).setFoodsData(outcome);
     }
     @SubscribeEvent
     public void onLand(@NotNull AnvilFallOnLandEvent event){
