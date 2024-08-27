@@ -1,6 +1,5 @@
 package dev.anvilcraft.fooding.block.entity;
 
-import dev.anvilcraft.fooding.block.FoodAnalyzerBlock;
 import dev.anvilcraft.fooding.block.entity.inventory.FoodAnalyzerMenu;
 import dev.anvilcraft.fooding.init.ModMenuTypes;
 import dev.dubhe.anvilcraft.api.depository.FilteredItemDepository;
@@ -17,7 +16,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -64,12 +62,7 @@ public class FoodAnalyzerBlockEntity extends BaseMachineBlockEntity implements
         );
     }
 
-//    public void tick(@NotNull Level level, BlockPos pos) {
-//        this.flushState(level, pos);
-//        BlockState state = level.getBlockState(pos);
-//        if (state.getValue(FoodAnalyzerBlock.LIT)) craft(level);
-//        level.updateNeighbourForOutputSignal(pos, state.getBlock());
-//    }
+
     private boolean canCraft() {
         return grid != null && grid.isWork();
     }
@@ -106,7 +99,7 @@ public class FoodAnalyzerBlockEntity extends BaseMachineBlockEntity implements
 
     @Override
     public void setDirection(Direction direction) {
-        return;
+
     }
 
     @Override

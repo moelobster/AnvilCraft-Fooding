@@ -2,8 +2,6 @@ package dev.anvilcraft.fooding.block.entity.inventory;
 
 import dev.dubhe.anvilcraft.api.depository.IItemDepository;
 import dev.dubhe.anvilcraft.api.depository.ItemDepositorySlot;
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 

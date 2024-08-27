@@ -5,7 +5,6 @@ import dev.anvilcraft.fooding.block.entity.FoodAnalyzerBlockEntity;
 import dev.anvilcraft.fooding.foodsystem.FoodsData;
 import dev.anvilcraft.fooding.foodsystem.hate.Hate;
 import dev.anvilcraft.fooding.foodsystem.like.Like;
-import dev.anvilcraft.fooding.init.ModBlockEntities;
 import dev.anvilcraft.fooding.init.ModBlocks;
 import dev.anvilcraft.lib.event.SubscribeEvent;
 import dev.dubhe.anvilcraft.api.event.entity.AnvilFallOnLandEvent;
@@ -99,7 +98,6 @@ public class FoodCraftEventListener {
         List<ItemEntity> entities2 =
                 level.getEntities(EntityTypeTest.forClass(ItemEntity.class), aabb2, Predicates.alwaysTrue());
         if(entities2.size() != 1 || entities1.size() != 1){
-            return;
         }else{
             ItemEntity itemEntity1 = entities1.get(0);
             ItemEntity itemEntity2 = entities2.get(0);

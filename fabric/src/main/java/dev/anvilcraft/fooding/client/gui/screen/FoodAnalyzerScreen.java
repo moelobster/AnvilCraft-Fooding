@@ -1,6 +1,5 @@
 package dev.anvilcraft.fooding.client.gui.screen;
 
-import dev.anvilcraft.fooding.AnvilCraftFooding;
 import dev.anvilcraft.fooding.block.entity.inventory.FoodAnalyzerMenu;
 import dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric;
 import dev.dubhe.anvilcraft.client.gui.screen.inventory.BaseMachineScreen;
