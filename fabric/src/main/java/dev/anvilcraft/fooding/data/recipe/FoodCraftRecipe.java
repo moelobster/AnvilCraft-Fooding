@@ -6,7 +6,7 @@ import dev.dubhe.anvilcraft.data.recipe.anvil.RecipeOutcome;
 import dev.dubhe.anvilcraft.data.recipe.anvil.RecipePredicate;
 
 public class FoodCraftRecipe {
-    public static void init(){
+    public static void register(){
         RecipePredicate.register("foodcraft_has_item", FoodCraftHasItem::new, FoodCraftHasItem::new);
         RecipeOutcome.register("foodcraft_spawn_item", FoodCraftSpawnItem::new, FoodCraftSpawnItem::new);
     }

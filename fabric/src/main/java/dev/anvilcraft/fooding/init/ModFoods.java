@@ -48,7 +48,7 @@ public class ModFoods {
 
 
 
-    public static void init() {
+    public static void register() {
 
     }
 

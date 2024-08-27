@@ -13,7 +13,7 @@ import static dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric.MOD_ID;
 
 public class FoodFix {
     public static Map<Item, CompoundTag> FoodList = new HashMap<>();
-    public static void init(){
+    public static void register(){
         register(Items.APPLE, new FoodTag()
                 .add(FRUIT.get(),1));
         register(Items.GOLDEN_APPLE,new FoodTag()

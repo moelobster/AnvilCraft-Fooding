@@ -27,7 +27,7 @@ public class ModItemGroups {
             .register();
 
 
-    public static void init() {
+    public static void register() {
     }
     private static @NotNull ItemStack createMaxLevelBook(@NotNull RegistryEntry<? extends Enchantment> enchantment) {
         return EnchantedBookItem.createForEnchantment(

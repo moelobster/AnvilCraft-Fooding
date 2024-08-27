@@ -14,12 +14,12 @@ import static dev.anvilcraft.fooding.foodsystem.hate.Hate.*;
 import static dev.anvilcraft.fooding.foodsystem.like.Like.*;
 import static dev.anvilcraft.fooding.foodsystem.taste.Tastes.*;
 
-public class FoodEfeects {
+public class FoodEfects {
     static Map<String, TasteType> normalMap = new HashMap<>();
     static Map<String, LikeType> likeMap = new HashMap<>();
     static Map<String, HateType> hateMap = new HashMap<>();
 
-    public static void init(){
+    public static void register(){
         likeInit();
         normalInit();
         hateInit();

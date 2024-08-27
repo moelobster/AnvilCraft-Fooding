@@ -11,7 +11,7 @@ import java.util.Set;
 import static dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric.MOD_ID;
 import static dev.anvilcraft.fooding.foodsystem.hate.Hate.HATE1;
 import static dev.anvilcraft.fooding.foodsystem.like.Like.*;
-import static dev.anvilcraft.fooding.foodsystem.FoodEfeects.*;
+import static dev.anvilcraft.fooding.foodsystem.FoodEfects.*;
 
 public class OnFinishEatingFood {
     public static void onFinishEating(ItemStack itemStack, Level level, LivingEntity livingEntity){

@@ -1,9 +1,12 @@
 package dev.anvilcraft.fooding.event;
 
 import com.google.common.base.Predicates;
+import dev.anvilcraft.fooding.block.entity.FoodAnalyzerBlockEntity;
 import dev.anvilcraft.fooding.foodsystem.FoodsData;
 import dev.anvilcraft.fooding.foodsystem.hate.Hate;
 import dev.anvilcraft.fooding.foodsystem.like.Like;
+import dev.anvilcraft.fooding.init.ModBlockEntities;
+import dev.anvilcraft.fooding.init.ModBlocks;
 import dev.anvilcraft.lib.event.SubscribeEvent;
 import dev.dubhe.anvilcraft.api.event.entity.AnvilFallOnLandEvent;
 import dev.dubhe.anvilcraft.api.event.entity.AnvilHurtEntityEvent;
@@ -75,6 +78,10 @@ public class FoodCraftEventListener {
         if (null == server) return;
         BlockPos belowPos = pos.below();
         BlockState state = level.getBlockState(belowPos);
+        if(state.is(ModBlocks.FOOD_ANALYZER.get())){
+            FoodAnalyzerBlockEntity entity = (FoodAnalyzerBlockEntity) level.getBlockEntity(belowPos);
+            entity.craft(level);
+        }
         if(state.is(Blocks.SCAFFOLDING)){
             belowPos = belowPos.below();
             state = level.getBlockState(belowPos);

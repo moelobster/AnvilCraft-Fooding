@@ -1,9 +1,8 @@
 package dev.anvilcraft.fooding.fabric;
 
 import dev.anvilcraft.fooding.event.FoodCraftEventListener;
-import dev.anvilcraft.fooding.foodsystem.FoodEfeects;
-import dev.anvilcraft.fooding.init.ModFoods;
-import dev.anvilcraft.fooding.init.ModItemGroups;
+import dev.anvilcraft.fooding.foodsystem.FoodEfects;
+import dev.anvilcraft.fooding.init.*;
 import dev.anvilcraft.fooding.data.recipe.FoodCraftRecipe;
 import dev.anvilcraft.fooding.item.minecraft.FoodFix;
 import dev.anvilcraft.lib.event.EventManager;
@@ -22,19 +21,20 @@ public class AnvilCraftFoodingFabric implements ModInitializer {
 
 
 
-    public static void init() {
+    public static void register() {
         // common init
-        ModFoods.init();
-        FoodFix.init();
+        ModFoods.register();
+        FoodFix.register();
+        ModBlocks.register();
+        ModBlockEntities.register();
+        ModMenuTypes.register();
 
-        FoodCraftRecipe.init();
-        ModItemGroups.init();
-        FoodEfeects.init();
+        FoodCraftRecipe.register();
+        ModItemGroups.register();
+        FoodEfects.register();
 
         // event init
         EVENT_BUS.register(new FoodCraftEventListener());
-//        EVENT_BUS.register(new FoodRecipeListener());
-        // fabric exclusive, squeeze this in here to register before stuff is used
         REGIS.registerRegistrate();
     }
     public static @NotNull ResourceLocation of(String path) {
@@ -42,7 +42,7 @@ public class AnvilCraftFoodingFabric implements ModInitializer {
     }
     @Override
     public void onInitialize() {
-        AnvilCraftFoodingFabric.init();
+        AnvilCraftFoodingFabric.register();
     }
 
 
