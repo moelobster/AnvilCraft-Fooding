@@ -3,8 +3,10 @@ package dev.anvilcraft.fooding.block.entity.inventory;
 import dev.anvilcraft.fooding.block.entity.FoodAnalyzerBlockEntity;
 import dev.anvilcraft.fooding.init.ModBlocks;
 import dev.dubhe.anvilcraft.api.depository.ItemDepositorySlot;
+import dev.dubhe.anvilcraft.block.entity.BaseMachineBlockEntity;
 import dev.dubhe.anvilcraft.inventory.BaseMachineMenu;
 import lombok.Getter;
+import net.minecraft.core.Direction;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -34,8 +36,8 @@ public class FoodAnalyzerMenu extends BaseMachineMenu implements ContainerListen
         this.addPlayerInventory(inventory);
         this.addPlayerHotbar(inventory);
 
-        this.addSlot( new ItemDepositorySlot(this.blockEntity.getDepository(),0,54,36));
-        this.addSlot(resultSlot = new AnalyzerBookSlot(this.blockEntity.getDepository(),1,108,36,this));
+        this.addSlot( new ItemDepositorySlot(this.blockEntity.getDepository(),0,56,35));
+        this.addSlot(resultSlot = new AnalyzerBookSlot(this.blockEntity.getDepository(),1,110,35,this));
 
 //        this.onChanged();
         this.addSlotListener(this);
@@ -136,6 +138,10 @@ public class FoodAnalyzerMenu extends BaseMachineMenu implements ContainerListen
     @Override
     public void dataChanged(@NotNull AbstractContainerMenu containerMenu, int dataSlotIndex, int value) {
 
+    }
+    @Override
+    public void setDirection(Direction direction) {
+        return;
     }
 
     public boolean isBook(ItemStack itemStack){

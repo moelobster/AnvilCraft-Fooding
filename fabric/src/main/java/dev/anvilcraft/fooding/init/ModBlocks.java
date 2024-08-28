@@ -2,6 +2,7 @@ package dev.anvilcraft.fooding.init;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.anvilcraft.fooding.block.FoodAnalyzerBlock;
+import dev.anvilcraft.fooding.block.InducedMutameterBlock;
 import dev.dubhe.anvilcraft.init.ModItems;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -32,7 +33,25 @@ public class ModBlocks {
                     .save(provider)
             )
             .register();
-
+    public static final BlockEntry<? extends Block> INDUCED_MUTAMETER = REGIS
+            .block("induced_mutameter", InducedMutameterBlock::new)
+            .initialProperties(() -> Blocks.IRON_BLOCK)
+            .blockstate((ctx, provider) -> {
+            })
+            .simpleItem()
+            .tag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .recipe((ctx, provider) -> ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ctx.get())
+                    .pattern("ABA")
+                    .pattern("ECE")
+                    .pattern("ADA")
+                    .define('A', Items.IRON_INGOT)
+                    .define('B',Items.QUARTZ)
+                    .define('C', ModItems.MAGNETOELECTRIC_CORE)
+                    .define('D',Items.COPPER_BLOCK)
+                    .define('E',Items.GOLD_INGOT)
+                    .save(provider)
+            )
+            .register();
 
 
     public static void register(){

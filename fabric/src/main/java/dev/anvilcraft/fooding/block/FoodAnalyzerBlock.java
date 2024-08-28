@@ -81,21 +81,6 @@ public class FoodAnalyzerBlock extends BaseEntityBlock  {
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return FoodAnalyzerBlockEntity.createBlockEntity(ModBlockEntities.FOOD_ANALYZER.get(), pos, state);
     }
-
-//    @Nullable
-//    @Override
-//    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
-//            @NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type
-//    ) {
-//        if (level.isClientSide) {
-//            return null;
-//        }
-//        return createTickerHelper(
-//                type,
-//                ModBlockEntities.FOOD_ANALYZER.get(),
-//                (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos)
-//        );
-//    }
     @Override
     protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(LIT).add(OVERLOAD);

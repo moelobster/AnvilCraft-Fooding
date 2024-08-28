@@ -1,0 +1,39 @@
+{
+  "item.anvilcraft_fooding.chili": "辣椒",
+  "item.anvilcraft_fooding.rice": "米饭",
+  "item.anvilcraft_fooding.rice_with_chili": "辣椒拌饭",
+
+
+
+  "itemGroup.anvilcraft_fooding.fooding": "食物",
+  "itemGroup.anvilcraft_fooding.tools": "工具",
+
+
+  "block.anvilcraft_fooding:food_analyzer": "食物分析仪",
+
+
+
+
+  "tag.anvilcraft_fooding.baked": "烧烤",
+  "tag.anvilcraft_fooding.bitter": "苦",
+  "tag.anvilcraft_fooding.chocolate": "可可",
+  "tag.anvilcraft_fooding.cream": "奶油",
+  "tag.anvilcraft_fooding.fruit": "水果",
+  "tag.anvilcraft_fooding.full": "饱腹",
+  "tag.anvilcraft_fooding.hot": "辛辣",
+  "tag.anvilcraft_fooding.luxurious": "奢华",
+  "tag.anvilcraft_fooding.meat": "肉",
+  "tag.anvilcraft_fooding.milk": "牛奶",
+  "tag.anvilcraft_fooding.mushroom": "菌类",
+  "tag.anvilcraft_fooding.mystery": "神秘",
+  "tag.anvilcraft_fooding.poison": "毒",
+  "tag.anvilcraft_fooding.raw": "生",
+  "tag.anvilcraft_fooding.seafood": "海产",
+  "tag.anvilcraft_fooding.soup": "汤羹",
+  "tag.anvilcraft_fooding.sweet": "甜",
+  "tag.anvilcraft_fooding.unbelievable": "不可思议",
+  "tag.anvilcraft_fooding.vegetable": "蔬菜",
+  "tag.anvilcraft_fooding.warm": "温暖",
+  "tag.anvilcraft_fooding.western": "西式"
+
+}

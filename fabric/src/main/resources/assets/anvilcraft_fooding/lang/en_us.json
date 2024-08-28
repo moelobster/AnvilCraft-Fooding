@@ -1,0 +1,39 @@
+{
+  "item.anvilcraft_fooding.chili": "Chili",
+  "item.anvilcraft_fooding.rice": "Rice",
+  "item.anvilcraft_fooding.rice_with_chili": "Rice with Chili",
+
+
+
+  "itemGroup.anvilcraft_fooding.fooding": "Fooding",
+  "itemGroup.anvilcraft_fooding.tools": "Tools",
+
+
+
+  "block.anvilcraft_fooding:food_analyzer": "Food Analyzer",
+
+
+
+
+  "tag.anvilcraft_fooding.baked": "baked",
+  "tag.anvilcraft_fooding.bitter": "bitter",
+  "tag.anvilcraft_fooding.chocolate": "chocolate",
+  "tag.anvilcraft_fooding.cream": "cream",
+  "tag.anvilcraft_fooding.fruit": "fruit",
+  "tag.anvilcraft_fooding.full": "full",
+  "tag.anvilcraft_fooding.hot": "hot",
+  "tag.anvilcraft_fooding.luxurious": "luxurious",
+  "tag.anvilcraft_fooding.meat": "meat",
+  "tag.anvilcraft_fooding.milk": "milk",
+  "tag.anvilcraft_fooding.mushroom": "mushroom",
+  "tag.anvilcraft_fooding.mystery": "mystery",
+  "tag.anvilcraft_fooding.poison": "poison",
+  "tag.anvilcraft_fooding.raw": "raw",
+  "tag.anvilcraft_fooding.seafood": "seafood",
+  "tag.anvilcraft_fooding.soup": "soup",
+  "tag.anvilcraft_fooding.sweet": "sweet",
+  "tag.anvilcraft_fooding.unbelievable": "unbelievable",
+  "tag.anvilcraft_fooding.vegetable": "vegetable",
+  "tag.anvilcraft_fooding.warm": "warm",
+  "tag.anvilcraft_fooding.western": "western"
+}

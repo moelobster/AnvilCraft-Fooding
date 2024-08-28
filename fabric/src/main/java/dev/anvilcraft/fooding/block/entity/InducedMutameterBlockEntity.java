@@ -1,11 +1,12 @@
 package dev.anvilcraft.fooding.block.entity;
 
-import dev.anvilcraft.fooding.block.entity.inventory.FoodAnalyzerMenu;
-import dev.anvilcraft.fooding.init.ModMenuTypes;
+import dev.anvilcraft.fooding.block.InducedMutameterBlock;
+import dev.anvilcraft.fooding.init.ModBlocks;
 import dev.dubhe.anvilcraft.api.depository.FilteredItemDepository;
 import dev.dubhe.anvilcraft.api.depository.fabric.ItemDepositoryHelperImpl;
 import dev.dubhe.anvilcraft.api.power.IPowerConsumer;
 import dev.dubhe.anvilcraft.api.power.PowerGrid;
+import dev.dubhe.anvilcraft.block.AutoCrafterBlock;
 import dev.dubhe.anvilcraft.block.entity.BaseMachineBlockEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,66 +34,46 @@ import java.util.Set;
 import static dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric.MOD_ID;
 
 @Getter
-public class FoodAnalyzerBlockEntity extends BaseMachineBlockEntity implements
-         IPowerConsumer{
-    @Getter
+public class InducedMutameterBlockEntity extends BaseMachineBlockEntity implements
+        IPowerConsumer {
     @Setter
     private PowerGrid grid;
-    private static final int POWER = 1;
-
-
-    private final FilteredItemDepository depository = new FilteredItemDepository.Pollable(2) {
+    private static final int POWER = 64;
+    private int cooldown = 20;
+    private final FilteredItemDepository depository = new FilteredItemDepository.Pollable(0) {
         @Override
         public void onContentsChanged(int slot) {
             setChanged();
         }
     };
-    protected FoodAnalyzerBlockEntity(BlockEntityType<? extends BlockEntity> type, BlockPos pos, BlockState blockState) {
+    protected InducedMutameterBlockEntity(BlockEntityType<? extends BlockEntity> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
     }
-
-    public static FoodAnalyzerBlockEntity createBlockEntity(
+    public static InducedMutameterBlockEntity createBlockEntity(
             BlockEntityType<?> type, BlockPos pos, BlockState blockState
     ) {
-        return new FoodAnalyzerBlockEntity(type, pos, blockState);
+        return new InducedMutameterBlockEntity(type, pos, blockState);
     }
 
-    public static void onBlockEntityRegister(BlockEntityType<FoodAnalyzerBlockEntity> type) {
+    public static void onBlockEntityRegister(BlockEntityType<InducedMutameterBlockEntity> type) {
         ItemStorage.SIDED.registerForBlockEntity(
                 (blockEntity, direction) -> ItemDepositoryHelperImpl.toStorage(blockEntity.getDepository()), type
         );
     }
-
-
-    private boolean canCraft() {
-        return grid != null && grid.isWork();
+    public void tick(@NotNull Level level, BlockPos pos) {
+        if (cooldown > 0) {
+            cooldown--;
+        }
     }
 
+    private boolean canCraft() {
+        if (grid == null || !grid.isWork()) return false;
+        if (cooldown > 0) return false;
+        return true;
+    }
     public void craft(@NotNull Level level){
         if(!canCraft()) return;
-        ItemStack itemStack1 = this.depository.getStack(0);
-        ItemStack itemStack2 = this.depository.getStack(1);
-        if (itemStack1.isEmpty()||itemStack2.isEmpty())  return;
-        if (itemStack1.getTagElement(MOD_ID)==null||itemStack2.getItem()!= Items.WRITABLE_BOOK)  return;
-        ListTag pages = new ListTag();
-        Set<String> keys = itemStack1.getTagElement(MOD_ID).getAllKeys();
-        int i = 0 ;
-        StringBuilder page = new StringBuilder();
-        for (String key : keys){
-            i = i + 1 ;
-            page.append(Component.translatable("tag.anvilcraft_fooding."+key).getString()).append(":").append(itemStack1.getTagElement(MOD_ID).getInt(key)).append("\n");
-            if(i==12){
-                pages.add(StringTag.valueOf(page.toString()));
-                page = new StringBuilder();
-                i = 0 ;
-            }
-        }
-        if(i != 0){
-            pages.add(StringTag.valueOf(page.toString()));
-        }
-        CompoundTag bookTag = new CompoundTag();
-        bookTag.put("pages",pages);
-        itemStack2.setTag(bookTag);
+
     }
     @Override
     public Level getCurrentLevel() {
@@ -106,39 +87,45 @@ public class FoodAnalyzerBlockEntity extends BaseMachineBlockEntity implements
 
     @Override
     public Direction getDirection() {
+        if (this.level == null) return Direction.UP;
+        BlockState state = this.level.getBlockState(this.getBlockPos());
+        if (state.is(ModBlocks.INDUCED_MUTAMETER.get())) return state.getValue(InducedMutameterBlock.FACING);
         return Direction.UP;
     }
 
     @Override
     public void setDirection(Direction direction) {
-
-    }
-
-    @Override
-    public @NotNull Component getDisplayName() {
-        return Component.translatable("block.anvilcraft_fooding:food_analyzer");
-    }
-
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int i, @NotNull Inventory inventory, @NotNull Player player) {
-        return new FoodAnalyzerMenu(ModMenuTypes.FOOD_ANALYZER.get(),i,inventory,this);
+        BlockPos pos = this.getBlockPos();
+        Level level = this.getLevel();
+        if (null == level) return;
+        BlockState state = level.getBlockState(pos);
+        if (!state.is(ModBlocks.INDUCED_MUTAMETER.get())) return;
+        level.setBlockAndUpdate(pos, state.setValue(InducedMutameterBlock.FACING, direction));
     }
     @Override
     public void load(@NotNull CompoundTag tag) {
         super.load(tag);
-        if (tag.contains("Inventory")) {
-            this.depository.deserializeNbt(tag.getCompound("Inventory"));
-        }
+        depository.deserializeNbt(tag.getCompound("Inventory"));
+        cooldown = tag.getInt("Cooldown");
     }
+
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         super.saveAdditional(tag);
         tag.put("Inventory", this.depository.serializeNbt());
-    }
-    @Override
-    public int getInputPower() {
-        return FoodAnalyzerBlockEntity.POWER;
+        tag.putInt("Cooldown", cooldown);
     }
 
+
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int i, @NotNull Inventory inventory, @NotNull Player player) {
+        return null;
+    }
+
+    @Override
+    public @NotNull Component getDisplayName() {
+        return Component.translatable("block.anvilcraft_fooding:induced_mutameter");
+    }
 }

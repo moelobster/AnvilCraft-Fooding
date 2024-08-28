@@ -1,0 +1,39 @@
+{
+  "icon":{
+    "item": "minecraft:poppy"
+  },
+  "type": "anvilcraft_fooding:mutameter",
+  "predicates":[
+    {
+      "type": "has_bottom_block",
+      "blocks":"minecraft:dirt"
+    },{
+      "type": "has_block",
+      "blocks":"minecraft:wither_rose"
+    },{
+      "type": "has_block",
+      "blocks":"minecraft:iron_block"
+    }
+  ],
+  "outcomes": [
+    {
+      "type": "foodcraft_setblock",
+      "chance": 1,
+      "result": {
+        "block": "minecraft:poppy"
+      }
+    },{
+      "type": "foodcraft_setblock",
+      "chance": 1,
+      "result": {
+        "block": "minecraft:wither_rose"
+      }
+    },{
+      "type": "foodcraft_setblock",
+      "chance": 8,
+      "result": {
+        "block": "minecraft:grass"
+      }
+    }
+  ]
+}

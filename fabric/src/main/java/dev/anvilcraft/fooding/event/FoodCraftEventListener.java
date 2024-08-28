@@ -2,6 +2,7 @@ package dev.anvilcraft.fooding.event;
 
 import com.google.common.base.Predicates;
 import dev.anvilcraft.fooding.block.entity.FoodAnalyzerBlockEntity;
+import dev.anvilcraft.fooding.block.entity.InducedMutameterBlockEntity;
 import dev.anvilcraft.fooding.foodsystem.FoodsData;
 import dev.anvilcraft.fooding.foodsystem.hate.Hate;
 import dev.anvilcraft.fooding.foodsystem.like.Like;
@@ -79,6 +80,10 @@ public class FoodCraftEventListener {
         BlockState state = level.getBlockState(belowPos);
         if(state.is(ModBlocks.FOOD_ANALYZER.get())){
             FoodAnalyzerBlockEntity entity = (FoodAnalyzerBlockEntity) level.getBlockEntity(belowPos);
+            entity.craft(level);
+        }
+        if(state.is(ModBlocks.INDUCED_MUTAMETER.get())){
+            InducedMutameterBlockEntity entity = (InducedMutameterBlockEntity) level.getBlockEntity(belowPos);
             entity.craft(level);
         }
         if(state.is(Blocks.SCAFFOLDING)){

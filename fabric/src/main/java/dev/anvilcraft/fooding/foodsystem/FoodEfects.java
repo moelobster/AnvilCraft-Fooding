@@ -1,15 +1,22 @@
 package dev.anvilcraft.fooding.foodsystem;
 
+import dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric;
 import dev.anvilcraft.fooding.foodsystem.hate.*;
 import dev.anvilcraft.fooding.foodsystem.like.*;
 import dev.anvilcraft.fooding.foodsystem.normal.*;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.server.level.ServerPlayer;
+import org.spongepowered.asm.mixin.injection.modify.LocalVariableDiscriminator;
 
+import javax.swing.text.AbstractDocument;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static dev.anvilcraft.fooding.fabric.AnvilCraftFoodingFabric.MOD_ID;
 import static dev.anvilcraft.fooding.foodsystem.hate.Hate.*;
 import static dev.anvilcraft.fooding.foodsystem.like.Like.*;
 import static dev.anvilcraft.fooding.foodsystem.taste.Tastes.*;
@@ -98,4 +105,5 @@ public class FoodEfects {
 
         }
     }
+
 }
